@@ -51,8 +51,9 @@ while IFS=';' read -ra line;do
 	count=0
 	for i in ${line[@]:1};do
 		# this cutting of first 2 chars slow down about 0.5 seconds in total.
-		# TODO: find more robust way.		
-		err_n=$(expr substr ${i%=*} 3 5)
+		# TODO: find more robust way.		==> should be much faster now
+		# err_n=$(expr substr ${i%=*} 3 5) # old one.
+    err_n=${i%=*};err_n=${err_n:2}
 		err_o=${i#*=}
 
 		# check if we have describe this error treshold
