@@ -54,7 +54,7 @@ while IFS=';' read -ra line;do
 		# TODO: find more robust way.		==> should be much faster now
 		# err_n=$(expr substr ${i%=*} 3 5) # old one.
     err_n=${i%=*};err_n=${err_n:2}
-		err_o=${i#*=}
+    err_o=${i#*=}
 
 		# check if we have describe this error treshold
 
